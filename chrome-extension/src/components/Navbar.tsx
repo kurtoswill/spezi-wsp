@@ -11,9 +11,9 @@ export const Navbar = () => {
       <div className="flex-col fixed items-center justify-between pt-20 pb-8 px-6 w-full h-full inset-0 bg-white z-40">
         <Link href="/" className="flex-shrink-0">
           <Image
-            src="/logos/spezi-logo-2.png"
+            src="spezi-logo-2.png"
             alt="Spezi logo"
-            width={117}
+            width={50}
             height={50}
             priority
           />

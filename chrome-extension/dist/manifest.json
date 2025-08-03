@@ -3,7 +3,11 @@
   "name": "Spezi",
   "version": "1.0",
   "description": "Real-time feedback for OFWs and non-fluent speakers",
-  "permissions": ["storage", "activeTab", "scripting"],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
   "action": {
     "default_popup": "/popup/index.html",
     "default_title": "Spezi",
@@ -18,6 +22,6 @@
     "service_worker": "background.js"
   },
   "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self';"
+    "extension_pages": "script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; object-src 'self';"
   }
 }

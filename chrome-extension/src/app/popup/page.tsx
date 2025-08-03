@@ -1,48 +1,40 @@
 "use client";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { useChrome } from "@/hooks/useChrome";
+
+const selections = [
+  { id: "pace", text: "Pace" },
+  { id: "tone", text: "Tone" },
+  { id: "fillerWords", text: "Filler Words" },
+  { id: "grammar", text: "Grammar" },
+];
 
 export default function PopupPage() {
-  const [message, setMessage] = useState("");
-  const { isAvailable, sendMessage } = useChrome();
-
-  const handleSend = () => {
-    sendMessage({ type: "popup", text: message });
-    setMessage("");
-  };
-
-  if (!isAvailable) {
-    return (
-      <div className="w-80 p-4">
-        <Card>
-          <CardContent className="pt-6 text-center">
-            <p className="text-sm text-gray-500">Development mode</p>
+  return (
+    <>
+      <div className="w-[25vw] h-[50vh] p-2">
+        <Card className="h-full">
+          <CardContent className="flex flex-col justify-between h-full">
+            <div className="flex flex-col gap-2">
+              {selections.map((selection) => {
+                return (
+                  <div
+                    key={selection.id}
+                    className="flex justify-between py-1 px-6 items-center border rounded-xl shadow-md border-gray-300"
+                  >
+                    {" "}
+                    <p className="text-md">{selection.text}</p> <Switch />{" "}
+                  </div>
+                );
+              })}
+            </div>
+            <Button>Start Recording</Button>
           </CardContent>
         </Card>
       </div>
-    );
-  }
-
-  return (
-    <div className="w-80 p-4">
-      <Card>
-        <CardHeader>
-          <CardTitle>My Extension</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          <Input
-            placeholder="Enter message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <Button onClick={handleSend} className="w-full">
-            Send Message
-          </Button>
-        </CardContent>
-      </Card>
-    </div>
+    </>
   );
 }

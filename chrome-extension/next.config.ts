@@ -6,14 +6,12 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  assetPrefix: process.env.NODE_ENV === "production" ? "./" : "",
   distDir: "dist",
-  generateBuildId: () => "build",
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.output.publicPath = "./";
-    }
-    return config;
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
+  experimental: {
+    optimizeCss: true,
   },
 };
 
