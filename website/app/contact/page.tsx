@@ -60,7 +60,7 @@ const Page = () => {
         <div className="w-full max-w-xl flex flex-col text-center gap-10">
           <div className="flex flex-col gap-5">
             <Image
-              src="/logos/spezi-logo-1.png"
+              src="../logos/spezi-logo-1.png"
               alt="logo"
               priority
               width={60}

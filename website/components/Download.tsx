@@ -22,9 +22,7 @@ export const Download = () => {
         <p className="text-base sm:text-lg max-w-2xl px-4">
           Install Spezi and get your first feedback in under 2 minutes.
         </p>
-        <Button className="p-6"
-          variant="default"
-        >
+        <Button className="p-6" variant="default">
           Download Extension
         </Button>
       </div>

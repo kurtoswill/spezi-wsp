@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "name": "Spezi",
+  "version": "1.0",
+  "description": "Real-time feedback for OFWs and non-fluent speakers",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["scripting"],
+  "host_permissions": ["<all_urls>"],
+  "icons": { "32": "/assets/spezi-logo-1.png" }
+}

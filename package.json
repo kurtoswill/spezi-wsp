@@ -4,6 +4,7 @@
     "@types/nodemailer": "^6.4.17"
   },
   "dependencies": {
+    "lucide": "^0.536.0",
     "nodemailer": "^7.0.5"
   }
 }
