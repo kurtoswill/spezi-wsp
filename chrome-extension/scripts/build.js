@@ -4,7 +4,6 @@ const path = require("path");
 const publicDir = path.join(__dirname, "../public");
 const distDir = path.join(__dirname, "../dist");
 
-// Copy manifest and icons
 fs.copyFileSync(
   path.join(publicDir, "manifest.json"),
   path.join(distDir, "manifest.json")
@@ -17,3 +16,19 @@ icons.forEach((icon) => {
     fs.copyFileSync(iconPath, path.join(distDir, icon));
   }
 });
+
+const oldPath = path.join(distDir, "_next");
+const newPath = path.join(distDir, "assets");
+
+if (fs.existsSync(oldPath)) {
+  fs.renameSync(oldPath, newPath);
+
+  const htmlFiles = fs.readdirSync(distDir).filter((f) => f.endsWith(".html"));
+
+  htmlFiles.forEach((file) => {
+    const filePath = path.join(distDir, file);
+    let content = fs.readFileSync(filePath, "utf8");
+    content = content.replace(/_next\//g, "assets/");
+    fs.writeFileSync(filePath, content);
+  });
+}
